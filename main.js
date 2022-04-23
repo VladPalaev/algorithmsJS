@@ -19,5 +19,31 @@ function alternativeGetUniqueNum(arr) {
 
 /*
 Задача 2
+Создайте функцию topSalary(salaries), которая возвращает имя самого высокооплачиваемого сотрудника.
+*/
 
+function topSalary(obj) {
+	let maxSalary = Object.entries(obj)
+					.reduce((inifial, [key, value]) => value > inifial ? inifial = value : inifial, 0)
+	
+	return Object.entries(obj).find(([key, value]) => value === maxSalary)[0]
+	
+}
+
+function alternativeTopSalary(salaries) {
+
+	let max = 0;
+	let maxName = null;
+
+	for(const [name, salary] of Object.entries(salaries)) {
+	  if (max < salary) {
+		max = salary;
+		maxName = name;
+	  }
+	}
+
+	return maxName;
+}
+/*
+Задача 3
 */
